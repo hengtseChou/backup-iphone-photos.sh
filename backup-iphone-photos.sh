@@ -85,4 +85,5 @@ for source_subfolder in "$source_dir"/*/; do
 done
 
 echo ":: Backup completed."
+echo ":: Backup folder usage: $(du -sh $source_dir | cut -f1)."
 
