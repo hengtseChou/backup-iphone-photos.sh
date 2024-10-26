@@ -22,7 +22,7 @@ fi
 
 source_dir="$1"
 dest_dir="$2"
-if ! which rsybc >/dev/null; then
+if ! command -v rsync 2>&1 >/dev/null; then
     echo "Error: rsync not found. Make sure you have rsync installed on your system."
     exit 1
 fi
