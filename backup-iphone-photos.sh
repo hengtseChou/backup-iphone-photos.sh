@@ -39,7 +39,7 @@ while getopts ":s:d:l-:" opt; do
     exit 1
     ;;
   :)
-    echo "Option -$OPTARG requires an argument." >&2
+    echo "Option -$OPTARG requires an argument" >&2
     _help
     exit 1
     ;;
@@ -47,20 +47,20 @@ while getopts ":s:d:l-:" opt; do
 done
 
 if [ -z "$source_dir" ] || [ -z "$dest_dir" ]; then
-  echo "Error: Source and destination directories are required."
+  echo "Error: Source and destination directories are required"
   _help
   exit 1
 fi
 if ! command -v rsync 2>&1 >/dev/null; then
-  echo "Error: rsync not found. Make sure you have rsync installed on your system."
+  echo "Error: rsync not found. Make sure you have rsync installed on your system"
   exit 1
 fi
 if [ ! -d "$source_dir" ]; then
-  echo "Error: Source directory '$source_dir' does not exist."
+  echo "Error: Source directory '$source_dir' does not exist"
   exit 1
 fi
 if [ ! -d "$dest_dir" ]; then
-  echo "Error: Destination directory '$dest_dir' does not exist."
+  echo "Error: Destination directory '$dest_dir' does not exist"
   exit 1
 fi
 
@@ -79,7 +79,7 @@ echo ":: Backup started."
 folders=("$source_dir"/*/)
 first=$(basename "${folders[0]}")
 last=$(basename "${folders[-1]}")
-echo ":: Syncing from $first to $last."
+echo ":: Syncing from $first to $last"
 sleep 1
 
 # Iterate through each subfolder in the source directory
@@ -108,7 +108,7 @@ for source_subfolder in "${folders[@]}"; do
       rsync -a --ignore-existing "$file" "$dest_dir/$year_month/"
     fi
   done
-  echo -e "\\n:: $subfolder_name completed."
+  echo -e "\\n:: $subfolder_name completed"
 
   # Update the processed record
   if [ -z "$processed_subfolders" ]; then
@@ -119,6 +119,6 @@ for source_subfolder in "${folders[@]}"; do
   echo "$processed_subfolders" >"$record"
 done
 
-echo ":: Backup completed."
+echo ":: Backup completed"
 echo ":: Calculating backup storage usage..."
-echo ":: Backup stroage usage: $(du -sh $source_dir | cut -f1)."
+echo ":: Backup stroage usage: $(du -sh $source_dir | cut -f1)"
