@@ -7,5 +7,5 @@ First, mount your iPhone (follow [this guide](https://itsfoss.com/iphone-antergo
 Then simply just run, for example,
 
 ```
-./backup-iphone-photos.sh ~/iPhone/DCIM ~/Pictures/phoneBackup
+./backup-iphone-photos.sh -s ~/iPhone/DCIM -d ~/Pictures/phone-backup
 ```
