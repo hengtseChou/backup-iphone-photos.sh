@@ -1,4 +1,4 @@
-# iPhone photo backup script
+# backup-iphone-photos.sh
 
 This is a simple script that utilize rsync to backup your photos from iPhone to your local disk, and organize them into YYYY-MM folders. What's more, it remembers where you finish and will skip those that are fully synchronized the next time you run this script. 
 
@@ -9,3 +9,5 @@ Then simply just run, for example,
 ```
 ./backup-iphone-photos.sh -s ~/iPhone/DCIM -d ~/Pictures/phone-backup
 ```
+
+Note that source and destination directory must be specified by `-s` and `-t`.
