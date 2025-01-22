@@ -46,7 +46,7 @@ if [ $OPTIND -eq 1 ]; then
   exit 1
 fi
 if [ -z "$source_dir" ] || [ -z "$dest_dir" ]; then
-  echo "[ERROR] Specify source and destination directories by -s and -d options"
+  echo "[ERROR] Source and destination directory must be specified by -s and -t"
   exit 1
 fi
 if ! command -v rsync 2>&1 >/dev/null; then
@@ -65,6 +65,7 @@ fi
 record="$dest_dir/.processed_subfolders"
 
 if [ ! -e "$record" ]; then
+  echo "[INFO] Backup record file not found. Creating a new one..."
   touch "$record"
 fi
 if [ -f "$record" ]; then
